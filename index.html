@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>test task radency 1</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <table class="todo-table">
+        <thead
+          id="thead-style"
+          class="table-head todo-table__head"
+          data-thead="active"
+        >
+          <tr class="table-row">
+            <th>Name</th>
+            <th>Created</th>
+            <th>Category</th>
+            <th>Content</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Archive</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody
+          class="list-of-todo__body"
+          id="tbody"
+          data-status="active"
+        ></tbody>
+        <template id="todo-template">
+          <tr class="table-row">
+            <td class="table-row__content name"></td>
+            <td class="table-row__content created"></td>
+            <td class="table-row__content category"></td>
+            <td class="table-row__content content"></td>
+            <td class="table-row__content date"></td>
+            <td class="table-row__content icon edit btn-activ">
+              <svg class="icon-edit" width="32px" height="32px">
+                <use href="./images/sprites.svg#icon-edit"></use>
+              </svg>
+            </td>
+            <td class="table-row__content icon archive btn-activ">
+              <svg class="icon-archive" width="32px" height="32px">
+                <use href="./images/sprites.svg#icon-archive"></use>
+              </svg>
+            </td>
+            <td class="table-row__content icon delete btn-activ">
+              <svg class="icon-delete" width="32px" height="32px">
+                <use href="./images/sprites.svg#icon-delete"></use>
+              </svg>
+            </td>
+          </tr>
+        </template>
+      </table>
+
+      <div class="btnContainer">
+        <button class="btnOpen" id="addTodo">Create Note</button>
+        <button class="btnOpen" id="toggle">Open Archive</button>
+      </div>
+
+      <dialog id="dialog">
+        <form method="dialog" id="form" class="form-dialog">
+          <label class="label">
+            <p>Name</p>
+            <input
+              class="form-dialog__input"
+              id="name"
+              name="name"
+              required
+              placeholder="Name"
+            />
+          </label>
+          <label class="label">
+            <p>Category</p>
+            <select
+              class="form-dialog__input"
+              id="category"
+              name="category"
+              required
+              defaultValue="def"
+            >
+              <option value="Task">Task</option>
+              <option value="Random Thought">Random Thought</option>
+              <option value="Idea">Idea</option>
+            </select>
+          </label>
+          <label class="label">
+            <p>Content</p>
+            <input
+              class="form-dialog__input"
+              id="content"
+              name="content"
+              placeholder="Описание"
+            />
+          </label>
+          <label class="label">
+            <p>Date</p>
+            <input
+              class="form-dialog__input"
+              id="date"
+              name="date"
+              type="date"
+              min="1930-01-01"
+              max="3000-12-31"
+            />
+          </label>
+          <button class="form-dialog__btn" id="submit" type="submit">
+            Submit
+          </button>
+        </form>
+      </dialog>
+
+      <table class="statistics">
+        <thead class="table-head statistics__head">
+          <tr class="statistics-row">
+            <th class="statistics-th">Note Category</th>
+            <th class="statistics-th">Active</th>
+            <th class="statistics-th">Archived</th>
+          </tr>
+        </thead>
+
+        <tbody class="statistics__body"></tbody>
+
+        <template id="category-template">
+          <tr class="table-row">
+            <td class="statistics-td category"></td>
+            <td class="statistics-td active-count"></td>
+            <td class="statistics-td archive-count"></td>
+          </tr>
+        </template>
+      </table>
+    </div>
+
+    <script type="module" src="js/render.js"></script>
+  </body>
+</html>
